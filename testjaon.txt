@@ -94,3 +94,28 @@ http://35.192.138.156:8080
 
 
 .vscode app app/__pycache__ app/initaldb app/migrations app/migrations/__pycache__ app/migrations/versions app/migrations/alembic.ini app/migrations/env.py app/migrations/README app/migrations/script.py.mako app/routes app/routes/__pycache__ app/routes/__init__.py app/routes/competitions.py app/routes/general.py app/routes/players.py app/routes/standings.py app/routes/Untitled-1 app/services app/services/__pycache__ app/services/__init__.py app/services/fetch_competitions.py app/services/fetch_standings.py app/static app/templates app/templates/index.html app/utils app/utils/__pycache__ app/utils/database.py app/venv app/venv/bin app/venv/include app/venv/lib app/venv/.gitignore app/venv/pyvenv.cfg app/__init__.py app/app.py app/config.py app/launch.json app/models.py app/requirements.txt venv app.py docker-compose.yml Dockerfile launch.json requirements.txt run.py test.jaon.json
+
+
+cd /path/to/your/project
+
+Initialize a Git repository:
+git init
+
+
+Add all files to the repository:
+git add .
+
+Commit the files:
+git commit -m "Initial commit"
+
+
+git remote add origin https://github.com/mikemaga/flask-app-git.git
+
+
+
+
+git branch -M main
+git push -u origin main
+
+github: mikemaga
+password:Miguyel12
