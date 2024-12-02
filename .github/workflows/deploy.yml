@@ -42,7 +42,7 @@ jobs:
       run: |
         gcloud compute ssh --zone "us-central1-b" "flask-app" --project "vertical-task-421920" << 'EOF'
           # Export the service account credentials on VM
-          export GOOGLE_APPLICATION_CREDENTIALS="/home/miguelmagalhaes/flask_api_server/gcp-sa-key.json"
+          export GOOGLE_APPLICATION_CREDENTIALS="/home/miguelmagalhaes/gcp-sa-key.json"
           
           # Navigate to the app directory on VM
           cd /home/miguelmagalhaes/flask_api_server
