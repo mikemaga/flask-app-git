@@ -30,10 +30,10 @@ jobs:
         sudo chmod +x /usr/local/bin/docker-compose
         docker-compose --version  # Verify installation
 
-    - name: Log in to Google Cloud
-      uses: google-github-actions/auth@v0
-      with:
-        credentials_json: ${{ secrets.GCP_SA_KEY }}
+    - name: Authenticate to Google Cloud
+      run: |
+        echo "${{ secrets.GCP_SA_KEY }}" | base64 -d > /tmp/gcp-key.json
+        gcloud auth activate-service-account --key-file=/tmp/gcp-key.json
 
     - name: Configure Docker for Google Cloud
       run: |
