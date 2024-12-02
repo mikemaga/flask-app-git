@@ -50,17 +50,20 @@ jobs:
       run: |
         docker-compose build
 
-    # Step 8: Deploy the app on the Google Cloud VM
+    # Step 8: Add SSH key for Google Cloud VM access
+    - name: Add SSH key for Google Cloud
+      run: |
+        echo "${{ secrets.GCLOUD_SSH_KEY }}" > ~/.ssh/google_compute_engine
+        chmod 600 ~/.ssh/google_compute_engine
+        eval "$(ssh-agent -s)"
+        ssh-add ~/.ssh/google_compute_engine
+
+    # Step 9: Deploy the app on the Google Cloud VM
     - name: SSH into Google Cloud VM and deploy
       run: |
-        gcloud compute ssh --zone "us-central1-b" "flask-app" --project "vertical-task-421920" << 'EOF'
-          # Set up service account credentials on the VM
+        gcloud compute ssh --zone "us-central1-b" "flask-app" --project "vertical-task-421920" --command '
           export GOOGLE_APPLICATION_CREDENTIALS="/home/miguelmagalhaes/gcp-sa-key.json"
-          
-          # Navigate to the app directory on the VM
           cd /home/miguelmagalhaes/flask_api_server
-          
-          # Restart the app with the updated Docker Compose configuration
           docker-compose down  # Stop existing containers
           docker-compose up -d  # Start containers in detached mode
-        EOF
+        '
