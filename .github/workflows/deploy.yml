@@ -1,0 +1,38 @@
+name: Deploy Docker App to Google Cloud VM
+
+on:
+  push:
+    branches:
+      - main  # Trigger this workflow on pushes to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner for this job
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3  # Fetch the latest code from your repo
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2  # Configure Docker Buildx
+
+    - name: Authenticate with Google Cloud
+      uses: google-github-actions/auth@v0  # Authenticate with GCP
+      with:
+        credentials_json: ${{ secrets.GCP_SA_KEY }}  # Your GCP service account JSON key stored in GitHub Secrets
+
+    - name: Configure Docker for Google Cloud
+      run: gcloud --quiet auth configure-docker  # Configure Docker to push to GCP registry
+
+    - name: Build and Push Docker Image
+      run: |
+        docker-compose build  # Build the Docker image
+        docker-compose push   # Push the Docker image (if required for registry use)
+
+    - name: SSH into Google Cloud VM and Deploy
+      run: |
+        gcloud compute ssh --zone "us-central1-b" "flask-app" --project "vertical-task-421920" << 'EOF'
+          cd /home/miguelmagalhaes/flask_api_server/  # Navigate to your app's directory on the VM
+          docker-compose down   # Stop the existing containers
+          docker-compose up -d  # Start the updated containers
+        EOF

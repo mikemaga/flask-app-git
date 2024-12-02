@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+app/venv/
+
+# Editor settings
+.vscode/
+.idea/
+
+#app tests
+app
+
+# Alembic migration cache
+app/migrations/__pycache__/
+app/initaldb
+
+
+# Test data
+test.jaon.json
+
+# Environment variables
+.env
