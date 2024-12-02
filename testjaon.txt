@@ -1,1 +1,129 @@
 
+
+
+docker run --name postgres -e POSTGRES_USER=dev -e POSTGRES_PASSWORD=yourpassword -e POSTGRES_DB=devdb -p 5432:5432 -d postgres
+DATABASE_URI = "dev://myuser:yourpassword@localhost:5432/devdb"
+
+.vscode app app/__pycache__ app/routes app/services app/static app/templates app/utils app/__init__.py app/config.py app/models.py initaldb initaldb/script.py initaldb/top_competitions.csv migrations venv app.py Dockerfile requirements.txt run.py test.jaon.json
+
+
+docker run -p 8080:8080 mike/hey-python-flask
+
+
+docker run --name postgres-container \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=yourpassword \
+  -e POSTGRES_DB=devdb \
+  -p 5432:5432 \
+  -d postgres
+
+
+
+  docker run --name mike/hey-python-flask \
+  -e POSTGRES_USER=miguelmagalhaes \
+  -e POSTGRES_PASSWORD=yourpassword \
+  -e POSTGRES_DB=miguelmagalhaes \
+  -p 5432:5432 \
+  -d postgres
+
+psql -h localhost -U dev -d devdb
+psql -h localhost -U miguelmagalhaes -d miguelmagalhaes
+psql -h db -U miguelmagalhaes -d miguelmagalhaes
+
+docker exec -it postgres-container psql -U postgres
+
+CREATE ROLE dev WITH LOGIN PASSWORD 'yourpassword';
+ALTER ROLE dev CREATEDB;
+
+
+docker run -p 8000:8000 app
+
+
+.vscode app app/__pycache__ app/initaldb app/migrations app/routes app/routes/__pycache__ app/routes/__init__.py app/routes/competitions.py app/routes/general.py app/routes/players.py app/routes/standings.py app/routes/Untitled-1 app/services app/services/__pycache__ app/services/__init__.py app/services/fetch_competitions.py app/services/fetch_standings.py app/static app/templates app/utils app/utils/__pycache__ app/utils/database.py app/venv app/__init__.py app/app.py app/config.py app/launch.json app/models.py app/requirements.txt venv app.py docker-compose.yml Dockerfile launch.json requirements.txt run.py test.jaon.json
+
+
+curl -X POST http://172.19.0.1:8000/fetch-top-competitions \
+-H "Content-Type: application/json" \
+-d '{"name": "New Competition", "description": "This is a test competition"}'
+
+curl -X POST http://localhost:8080/fetch-competitions \
+     -H "Content-Type: application/json" \
+     -d '{
+           "unique_tournament_id_list": [17],
+           "seasons_id_list": [2021]
+         }'
+
+curl -X POST http://localhost:8080/fetch-seasons \
+     -H "Content-Type: application/json" \
+     -d '{
+           "unique_tournament_id_list": [17]
+         }'
+
+
+ssh -i ~/.ssh/google_compute_engine ist179032miguelmgm@35.192.138.156
+ssh -i ~/.ssh/google_compute_engine miguelmagalhaes@35.192.138.156
+
+
+
+scp -i ~/.ssh/google_compute_engine -r /Users/miguelmagalhaes/Documents/scoreplay/flask_api_server/ flask-app@35.192.138.156:/home/miguelmagalhaes/flask-app-v1/
+scp -i ~/.ssh/google_compute_engine -r /Users/miguelmagalhaes/Documents/scoreplay/flask_api_server ist179032miguelmgm@35.192.138.156:/home/miguelmagalhaes/flask-app-v1/
+
+
+scp -i ~/.ssh/google_compute_engine -r /Users/miguelmagalhaes/Documents/scoreplay/flask_api_server/app/services miguelmagalhaes@35.192.138.156:/home/miguelmagalhaes/flask_api_server/app/services
+scp -i ~/.ssh/google_compute_engine -r /Users/miguelmagalhaes/Documents/scoreplay/flask_api_server/app/routes miguelmagalhaes@35.192.138.156:/home/miguelmagalhaes/flask_api_server/app/routes
+
+
+
+scp -i ~/.ssh/google_compute_engine -r /Users/miguelmagalhaes/Documents/scoreplay/flask_api_server/dockerfile miguelmagalhaes@35.192.138.156:/home/miguelmagalhaes/flask_api_server/
+scp -i ~/.ssh/google_compute_engine -r /Users/miguelmagalhaes/Documents/scoreplay/flask_api_server/docker-compose.yml miguelmagalhaes@35.192.138.156:/home/miguelmagalhaes/flask_api_server/
+scp -i ~/.ssh/google_compute_engine -r /Users/miguelmagalhaes/Documents/scoreplay/flask_api_server/docker-compose.yml miguelmagalhaes@35.192.138.156:/home/miguelmagalhaes/flask_api_server/
+scp -i ~/.ssh/google_compute_engine -r /Users/miguelmagalhaes/Documents/scoreplay/flask_api_server/requirements.txt miguelmagalhaes@35.192.138.156:/home/miguelmagalhaes/flask_api_server/
+
+scp -i ~/.ssh/google_compute_engine -r /Users/miguelmagalhaes/Documents/scoreplay/gcp-sa-key.json miguelmagalhaes@35.192.138.156:/home/miguelmagalhaes/
+
+
+ssh -i ~/.ssh/google_compute_engine flask-app@35.192.138.156
+
+gcloud compute ssh flask-app --zone us-central1-b
+
+.vscode/app .vscode/app/__pycache__ .vscode/app/routes .vscode/app/routes/__pycache__ .vscode/app/routes/__init__.py .vscode/app/routes/competitions.py .vscode/app/routes/general.py .vscode/app/routes/players.py .vscode/app/routes/standings.py .vscode/app/services .vscode/app/services/__pycache__ .vscode/app/services/__init__.py .vscode/app/services/fetch_competitions.py .vscode/app/services/fetch_standings.py .vscode/app/static .vscode/app/templates .vscode/app/templates/index.html .vscode/app/utils .vscode/app/utils/__pycache__ .vscode/app/utils/database.py .vscode/app/__init__.py .vscode/app/config.py .vscode/app/models.py .vscode/initaldb .vscode/initaldb/script.py .vscode/initaldb/top_competitions.csv .vscode/migrations .vscode/migrations/__pycache__ .vscode/migrations/versions .vscode/migrations/alembic.ini .vscode/migrations/env.py .vscode/migrations/README .vscode/migrations/script.py.mako .vscode/venv .vscode/app.py .vscode/docker-compose.yml .vscode/Dockerfile .vscode/launch.json .vscode/requirements.txt .vscode/run.py .vscode/test.jaon.json
+
+ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBG9nd3ytlC4169zuIdzSqJ4qTnZ+PrFCIAFwgQIzUFPO3rkweHrjdOxOwN/9RTSEpP7vAkoUxhzt2Q8Ul9hTziM= google-ssh {"userName":"ist179032miguelmgm@gmail.com","expireOn":"2024-12-01T14:12:08+0000"}
+
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDQZamFSq2d8JzU1w8I35FmiDPGBT3kBDVrcCNLJl5xyHf617EIGyzoQGHP3FvChdXRnECAgbF3Qc47m8o/cIrUpoEcaRO2iSN0JGWG+m284nvkS5SZ3UoaTcffenyaAe62mrlqyspVFX7uRP629FWUsS5xQr5lxhfsFw7C/+/QCuR2utRQa12OrF9ZzHgiARDjmzd6K2qkM+QDns9CCygkCvlT0E327NbFjkSVVoaEIAUIrCf6keCoRwrR/aSbxpsCFG6/JPvWPcUsn/qVfgqbQg2Lb8NyY2VkGSkjulEutcnWqH73caskxVo8aJ7oENhrXq2JCjXC1sn1vrWCwdBZ google-ssh {"userName":"ist179032miguelmgm@gmail.com","expireOn":"2024-12-01T14:12:14+0000"}
+
+http://35.192.138.156:8080
+
+
+.vscode app app/__pycache__ app/initaldb app/migrations app/migrations/__pycache__ app/migrations/versions app/migrations/alembic.ini app/migrations/env.py app/migrations/README app/migrations/script.py.mako app/routes app/routes/__pycache__ app/routes/__init__.py app/routes/competitions.py app/routes/general.py app/routes/players.py app/routes/standings.py app/routes/Untitled-1 app/services app/services/__pycache__ app/services/__init__.py app/services/fetch_competitions.py app/services/fetch_standings.py app/static app/templates app/templates/index.html app/utils app/utils/__pycache__ app/utils/database.py app/venv app/venv/bin app/venv/include app/venv/lib app/venv/.gitignore app/venv/pyvenv.cfg app/__init__.py app/app.py app/config.py app/launch.json app/models.py app/requirements.txt venv app.py docker-compose.yml Dockerfile launch.json requirements.txt run.py test.jaon.json
+
+
+cd /path/to/your/project
+
+Initialize a Git repository:
+git init
+
+
+Add all files to the repository:
+git add .
+
+Commit the files:
+git commit -m "Initial commit"
+
+
+git remote add origin https://github.com/mikemaga/flask-app-git.git
+
+
+
+
+
+git branch -M main
+git pull origin main --rebase
+
+git pull origin main
+git branch --set-upstream-to=origin/main main
+
+git push -u origin main
+
+github: mikemaga
+password:Miguyel12

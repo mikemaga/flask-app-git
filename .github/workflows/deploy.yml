@@ -36,7 +36,7 @@ jobs:
     - name: Build Docker image
       run: |
         docker-compose build
-        docker-compose push  # Optional: Push images to Docker Hub or GCR if needed
+       
 
     - name: SSH into Google Cloud VM and deploy
       run: |
@@ -48,6 +48,6 @@ jobs:
           cd /home/miguelmagalhaes/flask_api_server
 
           # Stop any running containers and restart with the updated app
-          docker-compose down  # Stop existing containers
-          docker-compose up -d  # Start containers in detached mode
+          # docker-compose down  # Stop existing containers
+          # docker-compose up -d  # Start containers in detached mode
         EOF
