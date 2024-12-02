@@ -114,7 +114,13 @@ git remote add origin https://github.com/mikemaga/flask-app-git.git
 
 
 
+
 git branch -M main
+git pull origin main --rebase
+
+git pull origin main
+git branch --set-upstream-to=origin/main main
+
 git push -u origin main
 
 github: mikemaga
