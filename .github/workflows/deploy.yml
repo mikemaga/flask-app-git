@@ -50,12 +50,11 @@ jobs:
         chmod 600 ~/.ssh/google_compute_engine
         eval "$(ssh-agent -s)"
         ssh-add ~/.ssh/google_compute_engine
-    
+
     - name: Debug SSH Key
       run: |
         ls -l ~/.ssh/google_compute_engine
         file ~/.ssh/google_compute_engine
-      
 
     - name: SSH into Google Cloud VM and deploy
       run: |
