@@ -10,15 +10,12 @@ jobs:
     runs-on: ubuntu-latest  # GitHub Action runs on Ubuntu
 
     steps:
-    # Step 1: Checkout the code
     - name: Checkout code
       uses: actions/checkout@v2
 
-    # Step 2: Set up Docker Buildx (required for advanced Docker builds)
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
 
-    # Step 3: Cache Docker layers to speed up builds
     - name: Cache Docker layers
       uses: actions/cache@v2
       with:
@@ -27,43 +24,38 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-docker-
 
-    # Step 4: Install Docker Compose (fixes the "command not found" issue)
     - name: Install Docker Compose
       run: |
         sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
         sudo chmod +x /usr/local/bin/docker-compose
         docker-compose --version  # Verify installation
 
-    # Step 5: Log in to Google Cloud using the service account key
     - name: Log in to Google Cloud
       uses: google-github-actions/auth@v0
       with:
-        credentials_json: ${{ secrets.GCP_SA_KEY }}  # GitHub secret containing your GCP service account key
+        credentials_json: ${{ secrets.GCP_SA_KEY }}
 
-    # Step 6: Configure Docker to use Google Cloud's Container Registry (if required)
     - name: Configure Docker for Google Cloud
       run: |
         gcloud --quiet auth configure-docker
 
-    # Step 7: Build Docker image
     - name: Build Docker image
       run: |
         docker-compose build
 
-    # Step 8: Add SSH key for Google Cloud VM access
     - name: Add SSH key for Google Cloud
       run: |
+        mkdir -p ~/.ssh  # Ensure the .ssh directory exists
         echo "${{ secrets.GCLOUD_SSH_KEY }}" > ~/.ssh/google_compute_engine
         chmod 600 ~/.ssh/google_compute_engine
         eval "$(ssh-agent -s)"
         ssh-add ~/.ssh/google_compute_engine
 
-    # Step 9: Deploy the app on the Google Cloud VM
     - name: SSH into Google Cloud VM and deploy
       run: |
         gcloud compute ssh --zone "us-central1-b" "flask-app" --project "vertical-task-421920" --command '
           export GOOGLE_APPLICATION_CREDENTIALS="/home/miguelmagalhaes/gcp-sa-key.json"
           cd /home/miguelmagalhaes/flask_api_server
-          docker-compose down  # Stop existing containers
-          docker-compose up -d  # Start containers in detached mode
+          docker-compose down
+          docker-compose up -d
         '
