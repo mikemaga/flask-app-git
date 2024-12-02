@@ -40,7 +40,10 @@ jobs:
     - name: SSH into Google Cloud VM and deploy
       run: |
         gcloud compute ssh --zone "us-central1-b" "flask-app" --project "vertical-task-421920" << 'EOF'
-          cd /path/to/your/app
+          cd /home/miguelmagalhaes/flask_api_server
           docker-compose down  # Stop any running containers
           docker-compose up -d  # Start the containers in detached mode
         EOF
+
+
+        
