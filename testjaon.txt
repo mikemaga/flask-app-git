@@ -78,6 +78,7 @@ scp -i ~/.ssh/google_compute_engine -r /Users/miguelmagalhaes/Documents/scorepla
 scp -i ~/.ssh/google_compute_engine -r /Users/miguelmagalhaes/Documents/scoreplay/flask_api_server/docker-compose.yml miguelmagalhaes@35.192.138.156:/home/miguelmagalhaes/flask_api_server/
 scp -i ~/.ssh/google_compute_engine -r /Users/miguelmagalhaes/Documents/scoreplay/flask_api_server/requirements.txt miguelmagalhaes@35.192.138.156:/home/miguelmagalhaes/flask_api_server/
 
+scp -i ~/.ssh/google_compute_engine -r /Users/miguelmagalhaes/Documents/scoreplay/gcp-sa-key.json miguelmagalhaes@35.192.138.156:/home/miguelmagalhaes/
 
 
 ssh -i ~/.ssh/google_compute_engine flask-app@35.192.138.156
