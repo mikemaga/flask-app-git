@@ -3,11 +3,12 @@ name: Deploy Docker app to Google Cloud VM
 on:
   push:
     branches:
-      - main
+      - main  # Trigger on push to the main branch
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # GitHub Action runs on Ubuntu
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -26,7 +27,7 @@ jobs:
     - name: Log in to Google Cloud
       uses: google-github-actions/auth@v0
       with:
-        credentials_json: ${{ secrets.GCP_SA_KEY }}  # Use the secret stored in GitHub
+        credentials_json: ${{ secrets.GCP_SA_KEY }}  # GitHub secret containing your GCP service account key
 
     - name: Configure Docker for Google Cloud
       run: |
@@ -40,10 +41,13 @@ jobs:
     - name: SSH into Google Cloud VM and deploy
       run: |
         gcloud compute ssh --zone "us-central1-b" "flask-app" --project "vertical-task-421920" << 'EOF'
+          # Export the service account credentials on VM
+          export GOOGLE_APPLICATION_CREDENTIALS="/home/miguelmagalhaes/flask_api_server/gcp-sa-key.json"
+          
+          # Navigate to the app directory on VM
           cd /home/miguelmagalhaes/flask_api_server
-          docker-compose down  # Stop any running containers
-          docker-compose up -d  # Start the containers in detached mode
+
+          # Stop any running containers and restart with the updated app
+          docker-compose down  # Stop existing containers
+          docker-compose up -d  # Start containers in detached mode
         EOF
-
-
-        
