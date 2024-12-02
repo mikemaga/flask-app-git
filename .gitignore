@@ -20,7 +20,7 @@ app/initaldb
 
 
 # Test data
-testjaon.txt
+testjaon
 
 # Environment variables
 .env
