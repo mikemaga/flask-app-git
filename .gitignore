@@ -11,7 +11,7 @@ app/venv/
 .idea/
 
 #app tests
-app
+app_test
 
 # Alembic migration cache
 app/migrations/__pycache__/
