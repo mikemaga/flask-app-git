@@ -39,7 +39,6 @@ def get_top_competitions():
         'uniquetournament_category_alpha2': s.uniquetournament_category_alpha2,
         'uniquetournament_usercount': s.uniquetournament_usercount,
         'uniquetournament_id': s.uniquetournament_id,
-        'uniquetournament_displayinversehomeawayteams': s.uniquetournament_displayinversehomeawayteams,
         'country_alpha2': s.country_alpha2,
         'country_name': s.country_name,
     } for s in top])

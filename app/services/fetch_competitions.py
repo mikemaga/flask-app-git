@@ -184,7 +184,6 @@ def fetch_top_competitions(url_csv):
                 uniquetournament_category_alpha2 = record.get('uniquetournament_category_alpha2'),
                 uniquetournament_usercount = record.get('uniquetournament_usercount'),
                 uniquetournament_id = record.get('uniquetournament_id'),
-                uniquetournament_displayinversehomeawayteams = record.get('uniquetournament_displayinversehomeawayteams'),
                 country_alpha2 = record.get('country_alpha2'),
                 country_name = record.get('country_name'),
             )
