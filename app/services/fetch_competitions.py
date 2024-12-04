@@ -130,7 +130,6 @@ def fetch_competitions(seasons_id_list, unique_tournament_id_list):
                     unique_tournament_category_alpha2=record.get('uniqueTournament_category_alpha2'),
                     unique_tournament_user_count=record.get('uniqueTournament_userCount'),
                     unique_tournament_id=record.get('uniqueTournament_id'),
-                    unique_tournament_display_inverse_home_away_teams=record.get('uniqueTournament_displayInverseHomeAwayTeams'),
                     country_alpha2=record.get('country_alpha2'),
                     country_name=record.get('country_name'),
                     season_id=seasons_id_list[i]
