@@ -86,34 +86,6 @@ class CompetitionStanding(db.Model):
 
 
 
-# class CompetitionList(db.Model):
-#     __tablename__ = 'top_competitions'
-    
-#     id = db.Column(db.Integer, primary_key=True)
-#     total_teams = db.Column(db.Integer, nullable=False)
-#     year = db.Column(db.String, nullable=False)
-#     type = db.Column(db.String, nullable=False)
-#     row_name = db.Column(db.String, nullable=True)
-#     ranking = db.Column(db.Integer, nullable=False)
-#     points = db.Column(db.Float, nullable=False)
-#     ranking_class = db.Column(db.String, nullable=True)
-#     unique_tournament_name = db.Column(db.String, nullable=False)
-#     unique_tournament_slug = db.Column(db.String, nullable=False)
-#     unique_tournament_primary_color_hex = db.Column(db.String, nullable=True)
-#     unique_tournament_secondary_color_hex = db.Column(db.String, nullable=True)
-#     unique_tournament_category_name = db.Column(db.String, nullable=True)
-#     unique_tournament_category_slug = db.Column(db.String, nullable=True)
-#     unique_tournament_category_sport_name = db.Column(db.String, nullable=True)
-#     unique_tournament_category_sport_slug = db.Column(db.String, nullable=True)
-#     unique_tournament_category_sport_id = db.Column(db.Integer, nullable=True)
-#     unique_tournament_category_id = db.Column(db.Integer, nullable=True)
-#     unique_tournament_category_flag = db.Column(db.String, nullable=True)
-#     unique_tournament_category_alpha2 = db.Column(db.String, nullable=True)
-#     unique_tournament_user_count = db.Column(db.Integer, nullable=True)
-#     unique_tournament_id = db.Column(db.Integer, nullable=False)
-#     unique_tournament_display_inverse_home_away_teams = db.Column(db.Boolean, nullable=False, default=False)
-#     country_alpha2 = db.Column(db.String, nullable=False)
-#     country_name = db.Column(db.String, nullable=False)
 
 class CompetitionList(db.Model):
     __tablename__ = 'top_competitions'  # Name of the table

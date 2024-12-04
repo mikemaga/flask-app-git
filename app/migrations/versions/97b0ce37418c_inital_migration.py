@@ -35,7 +35,6 @@ def upgrade():
         batch_op.add_column(sa.Column('unique_tournament_category_alpha2', sa.String(), nullable=True))
         batch_op.add_column(sa.Column('unique_tournament_user_count', sa.Integer(), nullable=True))
         batch_op.add_column(sa.Column('unique_tournament_id', sa.Integer(), nullable=False))
-        batch_op.add_column(sa.Column('unique_tournament_display_inverse_home_away_teams', sa.Boolean(), nullable=False))
         batch_op.alter_column('id',
                existing_type=sa.BIGINT(),
                type_=sa.Integer(),
@@ -135,7 +134,6 @@ def downgrade():
                type_=sa.BIGINT(),
                nullable=True,
                autoincrement=True)
-        batch_op.drop_column('unique_tournament_display_inverse_home_away_teams')
         batch_op.drop_column('unique_tournament_id')
         batch_op.drop_column('unique_tournament_user_count')
         batch_op.drop_column('unique_tournament_category_alpha2')

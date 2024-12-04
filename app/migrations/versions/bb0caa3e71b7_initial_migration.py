@@ -80,7 +80,6 @@ def downgrade():
                type_=sa.BIGINT(),
                nullable=True,
                autoincrement=True)
-       #  batch_op.drop_column('unique_tournament_display_inverse_home_away_teams')
        #  batch_op.drop_column('unique_tournament_id')
        #  batch_op.drop_column('unique_tournament_user_count')
        #  batch_op.drop_column('unique_tournament_category_alpha2')
